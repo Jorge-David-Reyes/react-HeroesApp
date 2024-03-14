@@ -13,7 +13,7 @@ export const HeroesRoutes = () => {
                 <Route path="dc" element={<DcPage />} /> 
 
                 <Route path="search" element={<SearchPage />} />
-                <Route path="hero" element={<HeroPage />} />
+                <Route path="hero/:id" element={<HeroPage />} /> {/* Esto sirve para que el componente HeroPage reciba el id del heroe que se quiere ver */}
 
                 <Route path="/" element={<Navigate to="/marvel"/>} />   
             </Routes> 
