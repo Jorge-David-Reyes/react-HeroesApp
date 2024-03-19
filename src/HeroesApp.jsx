@@ -2,8 +2,8 @@ import { AppRouter } from './router/AppRouter'
 
 export const HeroesApp = () => {
   return (
-    <>
-      <AppRouter></AppRouter>
-    </>
+    <AuthProvider value={{}}>
+      <AppRouter/>
+    </AuthProvider>
   )
 }
