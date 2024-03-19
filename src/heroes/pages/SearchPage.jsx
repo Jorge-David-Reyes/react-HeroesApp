@@ -3,15 +3,17 @@ import queryString from 'query-string'; // sirve para leer los query params
 
 import { HeroCard } from '../components';
 import { useForm } from '../../hooks/useForm';
+import { getHeroesByName } from '../helpers';
 
 export const SearchPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
   const { q = '' } = queryString.parse(location.search);
+  const heroes = getHeroesByName(q);
 
   const { searchText, onInputChange } = useForm({
-    searchText: ''
+    searchText: q
   });
 
   const onSearchSubmit = (e) => {
@@ -70,11 +72,11 @@ export const SearchPage = () => {
           </div>
 
 
-          {/* {
+          {
             heroes.map( hero => (
               <HeroCard key={ hero.id } {...hero } />
             ))
-          } */}
+          }
 
         </div>
     </div>
