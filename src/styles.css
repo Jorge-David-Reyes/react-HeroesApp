@@ -1,0 +1,32 @@
+.card{
+    width: 13rem;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Ajustar el comportamiento al pasar el mouse si es necesario */
+
+@keyframes rotateAnimation {
+    0% {
+        transform: rotate(-2deg) scale(1.05); /* Rotación inicial hacia la izquierda y tamaño normal */
+    }
+    50% {
+        transform: rotate(2deg) scale(1.05); /* Rotación hacia la derecha y agrandamiento */
+    }
+    100% {
+        transform: rotate(-2deg) scale(1.05); /* Rotación final hacia la izquierda y tamaño normal */
+    }
+}
+
+.card:hover {
+    animation: rotateAnimation 1s ease-in-out infinite; /* Aplicar la animación al pasar el mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el mouse */
+}
+
+.card img:hover{
+    cursor: pointer;
+}
+
+.boxCard {
+    width:fit-content;
+    height: fit-content;
+}

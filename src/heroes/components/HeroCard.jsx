@@ -17,52 +17,46 @@ export const HeroCard = ({
     characters
 }) => {
 
-    const heroImageUrl = `/assets/heroes/${ id }.jpg`;
+    // const heroImageUrl = `/assets/heroes/${ id }.jpg`;
+    const heroImageUrl = `/heroes/${ id }.jpg`;
 
     // const charactesByHero =  (<p>{ characters }</p>);
 
   return (
 
-        <div className="col animate__animated animate__fadeIn">
-            <div className="card">
+        <div className="animate__animated animate__fadeInc card-columns">
+            
 
-                <div className="row no-gutters">
-                    
-                    <div className="col-4">
-                        <img src={ heroImageUrl } className="card-img" alt={ superhero } />
+            <div className="card shadow rounded mb-3">
+                
+                <Link to={`/hero/${ id }`}>
+                    <div className="p-1">
+                        <img src={ heroImageUrl } className="card-img-top" alt={ superhero } />
                     </div>
+                </Link>
+                
+                <div className="card-body">
+                    <h5 className="card-title">{ superhero }</h5>
+                    <p className="card-text">{ alter_ego }</p>
 
-                    <div className="col-8">
+                    {/* { ( alter_ego !== characters ) && charactesByHero ( alter_ego !== characters ) &&
+                    <p>{ characters }</p>
+                    } */}
+                    <CharactersByHero characters={ characters } alter_ego={ alter_ego } />
 
-                        <div className="card-body">
+                    <p className="card-text">
+                        <small className="text-muted">{ first_appearance }</small>
+                    </p>
 
-                            <h5 className="card-title">{ superhero }</h5>
-                            <p className="card-text">{ alter_ego }</p>
-
-                            {/* {
-                                ( alter_ego !== characters ) && charactesByHero
-                                ( alter_ego !== characters ) && <p>{ characters }</p>
-                            } */}
-                            <CharactersByHero characters={ characters } alter_ego={ alter_ego } />
-
-                            <p className="card-text">
-                                <small className="text-muted">{ first_appearance }</small>
-                            </p>
-
-                            <Link to={`/hero/${ id }`}>
-                                Más..
-                            </Link>
-
-                            
-                        </div>
-
-                    </div>
-
-
+                    <Link to={`/hero/${ id }`}>
+                        Más..
+                    </Link>
                 </div>
-
-            </div>
+            </div>     
         </div>
+
+        
+
 
   )
 }
